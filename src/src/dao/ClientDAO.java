@@ -23,7 +23,7 @@ public class ClientDAO extends Initdao implements InterfaceDAO<Client> {
     public List<Client> findAll() {
 
         List<Client> allClients = new ArrayList<>();
-        Client c ;
+        Client c;
         query = "SELECT * FROM client";
         try {
             st = cnx.connect().createStatement();
@@ -64,9 +64,8 @@ public class ClientDAO extends Initdao implements InterfaceDAO<Client> {
 //            } else {
 //                System.out.println("Erreur d'ajout");
 //            }
-        }
-        catch (SQLException ex) {
-          //  ex.printStackTrace();
+        } catch (SQLException ex) {
+            //  ex.printStackTrace();
             System.out.println("Erreur d'ajout : verfifier les attributs du client");
         }
         return rowsInserted;
@@ -75,7 +74,21 @@ public class ClientDAO extends Initdao implements InterfaceDAO<Client> {
 
     @Override
     public int delete(Client e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         int rowsDeleted = 0;
+        try {
+            query = "DELETE FROM client WHERE id=?";
+            pst = cnx.connect().prepareStatement(query);
+            pst.setInt(1, e.getId());
+            rowsDeleted = pst.executeUpdate();
+//            if (rowsDeleted > 0) {
+//                System.out.println("A user was deleted successfully!");
+//            }
+        } catch (SQLException ex) {
+           ex.printStackTrace();
+           System.out.println("Erreur de suppr");
+           
+        }
+        return rowsDeleted;
     }
 
     @Override
@@ -87,7 +100,5 @@ public class ClientDAO extends Initdao implements InterfaceDAO<Client> {
     public Client findById(int numero) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
- 
 
 }
