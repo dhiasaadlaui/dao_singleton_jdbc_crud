@@ -16,6 +16,11 @@ public class Client {
     private String prenom,nom,telephone,adresse;
 
     @Override
+    public String toString() {
+        return "Client{" + "id=" + id + ", cin=" + cin + ", prenom=" + prenom + ", nom=" + nom + ", telephone=" + telephone + ", adresse=" + adresse + '}';
+    }
+
+    @Override
     public int hashCode() {
         int hash = 3;
         hash = 47 * hash + this.id;
