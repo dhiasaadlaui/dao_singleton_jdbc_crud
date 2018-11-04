@@ -76,6 +76,7 @@ public class ClientDAO extends Initdao implements InterfaceDAO<Client> {
     @Override
     public int delete(Client e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    ////////////////////
     }
 
     @Override
