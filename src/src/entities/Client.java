@@ -15,6 +15,14 @@ public class Client {
     private int id,cin;
     private String prenom,nom,telephone,adresse;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "Client{" + "id=" + id + ", cin=" + cin + ", prenom=" + prenom + ", nom=" + nom + ", telephone=" + telephone + ", adresse=" + adresse + '}';
